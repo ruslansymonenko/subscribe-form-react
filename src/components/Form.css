@@ -41,3 +41,8 @@
   border-radius: 10px;
   box-shadow: 2px 2px 4px #5e5c5c;
 }
+
+.ckeckBoxContainer{
+  display: flex;
+  font-size: 20px;
+}
