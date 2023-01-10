@@ -29,6 +29,18 @@ class Form extends React.Component {
     };
   }
 
+  handleSubmit = () => {
+    const isValidMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.state.email);
+    const isValidName = this.state.firstName.length < 5 ? false : true;
+    const isValidCheckbox = this.state.isAgreeWithTerms;
+
+    if (isValidMail && isValidName && isValidCheckbox) {
+      alert('Your data has been sent');
+    } else {
+      alert('Please, put correct data');
+    }
+  }
+
   render() {
     const {firstName, email} = this.state
 
@@ -60,7 +72,9 @@ class Form extends React.Component {
           <label>I agree with terms and conditions</label>
         </div>
       <button 
-        className='btn'>
+        className='btn'
+        onClick={this.handleSubmit}
+        >
           Send
       </button>
     </div>
